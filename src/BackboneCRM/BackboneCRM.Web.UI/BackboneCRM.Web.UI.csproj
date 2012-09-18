@@ -118,14 +118,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Content Include="Content\Images\glyphicons-halflings-white.png" />
     <Content Include="Content\Images\glyphicons-halflings.png" />
-    <Content Include="Content\Scripts\Vendor\Backbone\backbone-min.js" />
+    <Content Include="Content\Scripts\main.js" />
+    <Content Include="Content\Scripts\Vendor\Backbone\backbone.min.js" />
     <Content Include="Content\Scripts\Vendor\Require\require-jquery.js" />
     <Content Include="Content\Scripts\Vendor\TwitterBootstrap\bootstrap.min.js" />
-    <Content Include="Content\Scripts\Vendor\Backbone\underscore-min.js" />
+    <Content Include="Content\Scripts\Vendor\Backbone\underscore.min.js" />
     <Content Include="Content\Stylesheets\bootstrap-responsive.min.css" />
     <Content Include="Content\Stylesheets\bootstrap.min.css" />
     <Content Include="Default.html" />
     <Content Include="Global.asax" />
+    <Content Include="Login.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
