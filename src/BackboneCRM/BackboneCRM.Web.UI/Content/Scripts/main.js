@@ -5,12 +5,13 @@ require.config({
     baseUrl: "/Content/Scripts",
     paths: {
         backbone: "Vendor/Backbone/backbone.min",
-        underscore: "Vendor/Backbone/underscore.min"
+        underscore: "Vendor/Backbone/underscore.min",
+        marionette: "Vendor/Backbone/backbone.marionette"
     }
 });
 
-require(["underscore", "backbone"], function (_, Backbone) {
+require(["underscore", "backbone", "marionette", "App"], function (_, Backbone, Marionette, App) {
 
-    alert("Got it?" + $("body").html());
+    App.start();
 
 });
