@@ -149,6 +149,7 @@
     <Content Include="Content\Scripts\Vendor\Backbone\underscore.min.js" />
     <Content Include="Content\Scripts\Views\App\MenuView.js" />
     <Content Include="Content\Scripts\Views\Customers\Add\FormView.js" />
+    <Content Include="Content\Scripts\Views\Customers\Update\FormView.js" />
     <Content Include="Content\Scripts\Views\Customers\Home\ContentView.js" />
     <Content Include="Content\Scripts\Views\Customers\Home\LayoutView.js" />
     <Content Include="Content\Scripts\Views\Products\HomeView.js" />
@@ -159,6 +160,7 @@
     <Content Include="Content\Templates\App\main-layout.html" />
     <Content Include="Content\Templates\App\menu.html" />
     <Content Include="Content\Templates\Customers\Add\form.html" />
+    <Content Include="Content\Templates\Customers\Update\form.html" />
     <Content Include="Content\Templates\Customers\customer-row.html" />
     <Content Include="Content\Templates\Customers\Home\content.html" />
     <Content Include="Content\Templates\Customers\Home\layout.html" />

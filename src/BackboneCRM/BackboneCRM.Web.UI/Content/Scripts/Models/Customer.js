@@ -3,7 +3,9 @@
         "use strict";
 
         var model = Backbone.Model.extend({
+            idAttribute: "Id",
             defaults: {
+                Id: null,
                 Name: "Oliver",
                 Money: 0
             }

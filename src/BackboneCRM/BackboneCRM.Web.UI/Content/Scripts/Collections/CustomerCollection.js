@@ -6,11 +6,5 @@
             model: Customer
         });
 
-        var collection = new Collection();
-
-        var customer = new Customer();
-        customer.set("Money", 200);
-        collection.add(customer);
-
-        return collection;
+        return new Collection();
     });

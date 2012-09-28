@@ -10,6 +10,7 @@ define(
                     "": "home",
                     "customers": "customers",
                     "customers/add": "addCustomer",
+                    "customers/update/:id": "updateCustomer",
                     "products": "products"
                 },
                 home: function () {
@@ -20,6 +21,9 @@ define(
                 },
                 addCustomer: function () {
                     app.vent.trigger("customers:add");
+                },
+                updateCustomer: function (customerId) {
+                    app.vent.trigger("customers:update", customerId);
                 },
                 products: function () {
                     app.vent.trigger("products");

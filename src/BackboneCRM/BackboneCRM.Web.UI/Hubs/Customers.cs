@@ -9,9 +9,18 @@ namespace BackboneCRM.Web.UI.Hubs
 {
     public class Customers : Hub
     {
-        public void AddCustomer(int appId, Customer customer)
+        public void AddCustomer(Customer customer)
         {
-            Clients.customerAdded(appId, customer);
+            int id = (new Random()).Next(100, 1000000);
+
+            customer.Id = id.ToString();
+
+            Clients.customerAdded(customer);
+        }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            Clients.customerUpdated(customer);
         }
     }
 }

@@ -20,10 +20,10 @@
                     customer.set("Name", self.ui.txtName.val());
                     customer.set("Money", self.ui.txtMoney.val());
 
-                    customerCollection.add(customer);
+                    //We dont want it in the collection because we dont have a id for the object
+                    ///customerCollection.add(customer);
                     
-                    //Trigger the event to the other clients
-                    app.hubs.customers.addCustomer(window.id, customer);
+                    app.hubs.customers.addCustomer(customer);
                 });
 
                 return false;

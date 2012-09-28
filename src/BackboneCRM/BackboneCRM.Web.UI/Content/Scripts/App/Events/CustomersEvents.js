@@ -29,6 +29,17 @@
                 })
             });
 
+            app.vent.on("customers:update", function (customerId) {
+                require(["Views/Customers/Update/FormView", "Collections/CustomerCollection"], function (customersFormView, customerCollection) {
+
+                    console.log(customerId, customerCollection.get(customerId));
+
+                    app.main.show(new customersFormView({
+                        model: customerCollection.get(customerId)
+                    }));
+                })
+            });
+
         }
 
         return eventBuilder;

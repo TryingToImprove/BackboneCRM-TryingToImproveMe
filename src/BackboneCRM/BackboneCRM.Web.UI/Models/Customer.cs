@@ -7,6 +7,7 @@ namespace BackboneCRM.Web.UI.Models
 {
     public class Customer
     {
+        public string Id { get; set; }
         public string Name { get; set; }
         public int Money { get; set; }
     }
