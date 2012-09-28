@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Raven.Client;
+using Raven.Client.Document;
+using StructureMap;
 
 namespace BackboneCRM.Web.UI
 {
@@ -18,6 +21,31 @@ namespace BackboneCRM.Web.UI
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            ObjectFactory.Initialize(x =>
+            {
+                x.For<IDocumentStore>()
+                    .Singleton()
+                    .Use(y =>
+                    {
+                        IDocumentStore documentStore = new DocumentStore()
+                        {
+                            Url = "http://localhost:8080"
+                        };
+
+                        documentStore.Initialize();
+                        documentStore.Conventions.IdentityPartsSeparator = "-";
+
+                        return documentStore;
+                    });
+
+                x.For<IDocumentSession>()
+                    .HttpContextScoped()
+                    .Use(y =>
+                    {
+                        return y.GetInstance<IDocumentStore>().OpenSession();
+                    });
+            });
         }
     }
 }
