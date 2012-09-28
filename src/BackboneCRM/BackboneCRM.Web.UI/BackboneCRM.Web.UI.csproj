@@ -119,13 +119,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Content Include="Content\Images\glyphicons-halflings-white.png" />
     <Content Include="Content\Images\glyphicons-halflings.png" />
+    <Content Include="Content\Scripts\App\App.js" />
+    <Content Include="Content\Scripts\App\Events\HomeEvents.js" />
+    <Content Include="Content\Scripts\App\Events\CustomersEvents.js" />
     <Content Include="Content\Scripts\main.js" />
+    <Content Include="Content\Scripts\Routing\MainAppRouter.js" />
     <Content Include="Content\Scripts\Vendor\Backbone\backbone.min.js" />
+    <Content Include="Content\Scripts\Vendor\Handlebars\handlebars.1.0.rc1.js" />
     <Content Include="Content\Scripts\Vendor\Require\require-jquery.js" />
+    <Content Include="Content\Scripts\Vendor\Require\text.js" />
     <Content Include="Content\Scripts\Vendor\TwitterBootstrap\bootstrap.min.js" />
     <Content Include="Content\Scripts\Vendor\Backbone\underscore.min.js" />
+    <Content Include="Content\Scripts\Views\App\MenuView.js" />
+    <Content Include="Content\Scripts\Views\Customers\HomeView.js" />
+    <Content Include="Content\Scripts\Views\Home\HomeView.js" />
     <Content Include="Content\Stylesheets\bootstrap-responsive.min.css" />
     <Content Include="Content\Stylesheets\bootstrap.min.css" />
+    <Content Include="Content\Templates\App\main-layout.html" />
+    <Content Include="Content\Templates\App\menu.html" />
+    <Content Include="Content\Templates\Customers\home.html" />
+    <Content Include="Content\Templates\Home\home.html" />
     <Content Include="Default.html" />
     <Content Include="Global.asax" />
     <Content Include="Login.html" />
@@ -142,13 +155,14 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Scripts\Collections\" />
     <Folder Include="Content\Scripts\Models\" />
-    <Folder Include="Content\Scripts\Views\" />
-    <Folder Include="Content\Templates\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Scripts\Vendor\Backbone\backbone.marionette.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
