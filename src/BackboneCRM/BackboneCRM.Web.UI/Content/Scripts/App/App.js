@@ -1,12 +1,10 @@
 ﻿define(
     //Dependencies
-    ["underscore", "backbone", "marionette", "text!template/app/main-layout.html", "Routing/MainAppRouter",
-        "App/Events/CustomersEvents", "App/Events/HomeEvents", "App/Events/ProductsEvents",
-        "Views/App/MenuView",
-    "signalr", "noext!../../../signalr/hubs"],
+    ["underscore", "backbone", "marionette", "text!template/app/main-layout.html", "Routing/MainAppRouter", "App/Events/CustomersEvents", "App/Events/HomeEvents", "App/Events/ProductsEvents", "Views/App/MenuView", "signalr", "noext!../../../signalr/hubs"],
 
     //Function
-    function (_, Backbone, Marionette, mainLayoutTemplate, MainAppRouter, CustomersEvents, HomeEvents, ProductsEvents, MenuView, signalR, Hubs) {
+    function (underscore, Backbone, Marionette, mainLayoutTemplate, MainAppRouter, CustomersEvents, HomeEvents, ProductsEvents, MenuView, signalR, Hubs) {
+        "use strict";
 
         var app = new Backbone.Marionette.Application();
 
@@ -44,8 +42,8 @@
 
         //Events
         app.vent.on("routing:start", function () {
-            app.router = new MainAppRouter(app);;
-            if (!Backbone.History.started) Backbone.history.start();
+            app.router = new MainAppRouter(app);
+            if (!Backbone.History.started) { Backbone.history.start(); }
         });
 
         //Setup customersEvents

@@ -3,8 +3,12 @@
         "use strict";
 
         var Collection = Backbone.Collection.extend({
-            model: Customer
+            model: Customer,
+            url: "api/customers"
         });
 
-        return new Collection();
+        var collection = new Collection();
+        collection.fetch();
+
+        return collection;
     });
