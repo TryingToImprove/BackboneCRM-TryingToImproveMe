@@ -130,6 +130,7 @@
   <ItemGroup>
     <Compile Include="Api\AuthenticationController.cs" />
     <Compile Include="Api\CustomersController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -151,6 +152,7 @@
     <Content Include="Content\Scripts\main.js" />
     <Content Include="Content\Scripts\Models\Customer.js" />
     <Content Include="Content\Scripts\Routing\MainAppRouter.js" />
+    <Content Include="Content\Scripts\Vendor\AjaxFileUpload\ajaxfileupload.js" />
     <Content Include="Content\Scripts\Vendor\Backbone\backbone.min.js" />
     <Content Include="Content\Scripts\Vendor\Handlebars\handlebars.1.0.rc1.js" />
     <Content Include="Content\Scripts\Vendor\Require\noext.js" />
@@ -201,7 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Content\Uploads\Customers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
