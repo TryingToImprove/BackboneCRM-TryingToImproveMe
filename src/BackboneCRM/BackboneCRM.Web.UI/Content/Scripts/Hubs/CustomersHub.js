@@ -4,7 +4,7 @@
         "signalr", "noext!../../../signalr/hubs"],
 
     //Function
-    function (_, Backbone, Marionette, app, signalR, Hubs) {
+    function (underscore, Backbone, Marionette, app, signalR, Hubs) {
         "use strict";
 
         var hub = $.connection.customers;
