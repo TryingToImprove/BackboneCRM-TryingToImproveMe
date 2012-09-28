@@ -1,17 +1,17 @@
 ﻿define(
     //Dependencies
-    ["underscore", "backbone", "marionette", "Views/Customers/HomeView"],
+    ["underscore", "backbone", "marionette"],
 
     //Function
-    function (_, Backbone, Marionette, CustomerHomeView) {
+    function (_, Backbone, Marionette) {
 
         var eventBuilder = function (app) {
-            
-            app.vent.on("customers", function () {
-                var homeView = new CustomerHomeView();
-                app.main.show(homeView);
-            });
 
+            app.vent.on("customers", function () {
+                require(["Views/Customers/Home/LayoutView"], function (customersLayoutView) {
+                    app.main.show(customersLayoutView);
+                })
+            });
         }
 
         return eventBuilder;

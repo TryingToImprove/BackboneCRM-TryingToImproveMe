@@ -120,9 +120,12 @@
     <Content Include="Content\Images\glyphicons-halflings-white.png" />
     <Content Include="Content\Images\glyphicons-halflings.png" />
     <Content Include="Content\Scripts\App\App.js" />
+    <Content Include="Content\Scripts\App\Events\ProductsEvents.js" />
     <Content Include="Content\Scripts\App\Events\HomeEvents.js" />
     <Content Include="Content\Scripts\App\Events\CustomersEvents.js" />
+    <Content Include="Content\Scripts\Collections\CustomerCollection.js" />
     <Content Include="Content\Scripts\main.js" />
+    <Content Include="Content\Scripts\Models\Customer.js" />
     <Content Include="Content\Scripts\Routing\MainAppRouter.js" />
     <Content Include="Content\Scripts\Vendor\Backbone\backbone.min.js" />
     <Content Include="Content\Scripts\Vendor\Handlebars\handlebars.1.0.rc1.js" />
@@ -131,13 +134,20 @@
     <Content Include="Content\Scripts\Vendor\TwitterBootstrap\bootstrap.min.js" />
     <Content Include="Content\Scripts\Vendor\Backbone\underscore.min.js" />
     <Content Include="Content\Scripts\Views\App\MenuView.js" />
-    <Content Include="Content\Scripts\Views\Customers\HomeView.js" />
+    <Content Include="Content\Scripts\Views\Customers\Home\ContentView.js" />
+    <Content Include="Content\Scripts\Views\Customers\Home\LayoutView.js" />
+    <Content Include="Content\Scripts\Views\Products\HomeView.js" />
+    <Content Include="Content\Scripts\Views\Customers\Home\DescriptionView.js" />
     <Content Include="Content\Scripts\Views\Home\HomeView.js" />
     <Content Include="Content\Stylesheets\bootstrap-responsive.min.css" />
     <Content Include="Content\Stylesheets\bootstrap.min.css" />
     <Content Include="Content\Templates\App\main-layout.html" />
     <Content Include="Content\Templates\App\menu.html" />
-    <Content Include="Content\Templates\Customers\home.html" />
+    <Content Include="Content\Templates\Customers\customer-row.html" />
+    <Content Include="Content\Templates\Customers\Home\content.html" />
+    <Content Include="Content\Templates\Customers\Home\layout.html" />
+    <Content Include="Content\Templates\Products\home.html" />
+    <Content Include="Content\Templates\Customers\Home\description.html" />
     <Content Include="Content\Templates\Home\home.html" />
     <Content Include="Default.html" />
     <Content Include="Global.asax" />
@@ -153,8 +163,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Scripts\Collections\" />
-    <Folder Include="Content\Scripts\Models\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
