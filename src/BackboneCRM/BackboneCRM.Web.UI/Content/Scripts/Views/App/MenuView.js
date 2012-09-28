@@ -7,21 +7,21 @@
             template: menuViewTemplate,
             changeLocation: function (event) {
 
-                var anchor = $(event.target),
-                    hash = anchor.attr("href");
+                //var anchor = $(event.target),
+                //    hash = anchor.attr("href");
 
-                //Remove #-sign
-                if (hash.indexOf("#") == 0) {
-                    hash = hash.replace("#", "");
-                }
+                ////Remove #-sign
+                //if (hash.indexOf("#") == 0) {
+                //    hash = hash.replace("#", "");
+                //}
 
-                //Lowercase the hash for conventice
-                hash = hash.toLowerCase();
+                ////Lowercase the hash for conventice
+                //hash = hash.toLowerCase();
 
-                //Trigger backbone history navigate
-                Backbone.history.navigate(hash, { trigger: true });
+                ////Trigger backbone history navigate
+                //Backbone.history.navigate(hash, { trigger: true });
 
-                return false;
+                //return false;
             }
         });
 

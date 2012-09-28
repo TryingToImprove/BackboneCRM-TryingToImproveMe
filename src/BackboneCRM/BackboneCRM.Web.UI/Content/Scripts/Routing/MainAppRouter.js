@@ -9,6 +9,7 @@ define(
                 routes: {
                     "": "home",
                     "customers": "customers",
+                    "customers/add": "addCustomer",
                     "products": "products"
                 },
                 home: function () {
@@ -16,6 +17,9 @@ define(
                 },
                 customers: function () {
                     app.vent.trigger("customers");
+                },
+                addCustomer: function () {
+                    app.vent.trigger("customers:add");
                 },
                 products: function () {
                     app.vent.trigger("products");
