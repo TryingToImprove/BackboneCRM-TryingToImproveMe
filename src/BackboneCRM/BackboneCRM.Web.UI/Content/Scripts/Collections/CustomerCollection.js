@@ -9,7 +9,7 @@
         var collection = new Collection();
 
         var customer = new Customer();
-        customer.set("money", 200);
+        customer.set("Money", 200);
         collection.add(customer);
 
         return collection;

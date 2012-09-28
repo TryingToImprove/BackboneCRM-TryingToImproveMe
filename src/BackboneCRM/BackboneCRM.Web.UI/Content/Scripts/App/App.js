@@ -2,10 +2,11 @@
     //Dependencies
     ["underscore", "backbone", "marionette", "text!template/app/main-layout.html", "Routing/MainAppRouter",
         "App/Events/CustomersEvents", "App/Events/HomeEvents", "App/Events/ProductsEvents",
-        "Views/App/MenuView"],
+        "Views/App/MenuView",
+    "signalr", "noext!../../../signalr/hubs"],
 
     //Function
-    function (_, Backbone, Marionette, mainLayoutTemplate, MainAppRouter, CustomersEvents, HomeEvents, ProductsEvents, MenuView) {
+    function (_, Backbone, Marionette, mainLayoutTemplate, MainAppRouter, CustomersEvents, HomeEvents, ProductsEvents, MenuView, signalR, Hubs) {
 
         var app = new Backbone.Marionette.Application();
 
@@ -15,17 +16,31 @@
             menu: "#menu-container"
         });
 
+        //Define namespace for hubs
+        app.hubs = {};
+
         //Initializerd
 
         //Initializer for menu
         app.addInitializer(function () {
             this.menu.show(new MenuView());
-
         });
-
+        //Initializer for routing
         app.addInitializer(function () {
             this.vent.trigger("routing:start");
         });
+
+        //Initializer for customerHubs
+        app.addInitializer(function () {
+            require(["Hubs/CustomersHub", "Models/Customer"], function (CustomersHub, Customer) {
+                app.hubs.customers = CustomersHub;
+
+                $.connection.hub.start().done(function () {
+                    //Run the app
+                });
+            });
+        });
+
 
         //Events
         app.vent.on("routing:start", function () {

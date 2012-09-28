@@ -1,5 +1,5 @@
-﻿define(["underscore", "backbone", "marionette", "text!template/customers/add/form.html", ],
-    function (underscore, Backbone, Marionette, viewTemplate) {
+﻿define(["underscore", "backbone", "marionette", "text!template/customers/add/form.html", "App/App", "signalr", "noext!../../../signalr/hubs"],
+    function (underscore, Backbone, Marionette, viewTemplate, app, signalr, hubs) {
         "use strict";
 
         var view = Backbone.Marionette.ItemView.extend({
@@ -17,10 +17,13 @@
 
                 require(["Models/Customer", "Collections/CustomerCollection"], function (Customer, customerCollection) {
                     var customer = new Customer();
-                    customer.set("name", self.ui.txtName.val());
-                    customer.set("money", self.ui.txtMoney.val());
+                    customer.set("Name", self.ui.txtName.val());
+                    customer.set("Money", self.ui.txtMoney.val());
 
                     customerCollection.add(customer);
+                    
+                    //Trigger the event to the other clients
+                    app.hubs.customers.addCustomer(window.id, customer);
                 });
 
                 return false;

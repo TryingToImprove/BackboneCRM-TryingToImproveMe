@@ -10,10 +10,7 @@
         var view = Backbone.Marionette.CompositeView.extend({
             template: viewTemplate,
             itemView: CustomerRowView,
-            itemViewContainer: "tbody",
-            initialize: function () {
-                console.log(this.collection);
-            }
+            itemViewContainer: "tbody"
         });
 
         return view;

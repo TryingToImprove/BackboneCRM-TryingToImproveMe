@@ -4,8 +4,8 @@
 
         var model = Backbone.Model.extend({
             defaults: {
-                name: "Oliver",
-                money: 0
+                Name: "Oliver",
+                Money: 0
             }
         });
 
