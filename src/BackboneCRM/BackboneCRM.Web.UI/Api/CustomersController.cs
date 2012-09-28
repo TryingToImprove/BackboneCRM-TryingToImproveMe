@@ -17,9 +17,18 @@ namespace BackboneCRM.Web.UI.Api
 
         public HttpResponseMessage Get()
         {
-            var customers = session.Query<Customer>().ToArray();
+            Customer[] customers = session.Query<Customer>().ToArray();
+            HttpResponseMessage response = Request.CreateResponse<IEnumerable<Customer>>(HttpStatusCode.OK, customers);
 
-            var response = Request.CreateResponse<IEnumerable<Customer>>(HttpStatusCode.OK, customers);
+            return response;
+        }
+
+        public HttpResponseMessage Post(Customer customer)
+        {
+            session.Store(customer);
+            session.SaveChanges();
+
+            HttpResponseMessage response = Request.CreateResponse<Customer>(HttpStatusCode.OK, customer);
 
             return response;
         }

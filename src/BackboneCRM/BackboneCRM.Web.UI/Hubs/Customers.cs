@@ -15,9 +15,6 @@ namespace BackboneCRM.Web.UI.Hubs
 
         public void AddCustomer(Customer customer)
         {
-            session.Store(customer);
-            session.SaveChanges();
-
             Clients.customerAdded(customer);
         }
 

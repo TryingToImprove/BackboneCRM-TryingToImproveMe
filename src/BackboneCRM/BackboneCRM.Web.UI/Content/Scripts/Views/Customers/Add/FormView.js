@@ -8,11 +8,12 @@
             },
             ui: {
                 txtName: "#customer-txtName",
-                txtMoney: "#customer-txtMoney"
+                txtMoney: "#customer-txtMoney",
+                btnSubmit: "#customer-btnSubmit"
             },
             template: viewTemplate,
             saveCustomer: function (event) {
-                
+
                 var self = this;
 
                 require(["Models/Customer", "Collections/CustomerCollection"], function (Customer, customerCollection) {
@@ -21,9 +22,16 @@
                     customer.set("Money", self.ui.txtMoney.val());
 
                     //We dont want it in the collection because we dont have a id for the object
-                    ///customerCollection.add(customer);
-                    
-                    app.hubs.customers.addCustomer(customer);
+
+                    self.ui.btnSubmit.attr("disabled", "disabled").text("Saving...");
+
+                    customerCollection.create(customer, {
+                        success: function (e) {
+                            self.ui.btnSubmit.removeClass("btn-primary").addClass("btn-success").text("Customer is saved!");
+
+                            app.hubs.customers.addCustomer(customer);
+                        }
+                    });
                 });
 
                 return false;
