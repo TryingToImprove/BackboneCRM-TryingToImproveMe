@@ -550,7 +550,8 @@
         this.bindTo(this.collection, "add", this.addChildView, this);
         this.bindTo(this.collection, "remove", this.removeItemView, this);
         this.bindTo(this.collection, "reset", this.renderCollection, this);
-      }
+        this.bindTo(this.collection, "change", this.renderCollection, this);
+    }
     },
   
     // Retrieve the `itemView` to be used when rendering each of
