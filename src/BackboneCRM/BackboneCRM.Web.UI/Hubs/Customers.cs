@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using BackboneCRM.Web.UI.Models;
+using BackboneCRM.Domain.Models;
 using Raven.Client;
 using SignalR.Hubs;
 using StructureMap;

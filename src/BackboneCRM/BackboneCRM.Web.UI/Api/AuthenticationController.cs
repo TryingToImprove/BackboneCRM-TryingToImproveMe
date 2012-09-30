@@ -1,24 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Web.Http;
-using System.Web.Security;
-using System.Web.SessionState;
+using BackboneCRM.Domain.Models;
 using BackboneCRM.Web.UI.Services;
+using Raven.Client;
+using Raven.Client.Linq;
+using StructureMap;
+using System.Linq;
 
 namespace BackboneCRM.Web.UI.Api
 {
     public class AuthenticationController : ApiController
     {
+        private IDocumentSession session = ObjectFactory.GetInstance<IDocumentSession>();
+
+
         [HttpPost]
         public HttpResponseMessage SignIn(string username, string password)
         {
-            if (username.Equals("test", StringComparison.InvariantCultureIgnoreCase) && password.Equals("abc123"))
+            var foundMembers = session.Query<Member>().Where(x => x.Credentials.Username == username && x.Credentials.Password == password);
+
+            if (foundMembers.Any())
             {
-                var a = Request.CreateResponse<string>(HttpStatusCode.OK, Crypto.EncryptStringAES("oliver:test", "authentication"));
+                var member = foundMembers.First();
+                
+                var a = Request.CreateResponse<string>(HttpStatusCode.OK, Crypto.EncryptStringAES(member.Credentials.ToString(), "authentication"));
 
                 return a;
             }

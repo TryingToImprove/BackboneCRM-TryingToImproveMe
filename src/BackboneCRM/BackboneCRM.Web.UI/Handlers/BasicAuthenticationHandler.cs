@@ -1,26 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Principal;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.Http.Hosting;
-using System.Web.Security;
+using BackboneCRM.Domain.Models;
 using BackboneCRM.Web.UI.Services;
+using System.Linq;
+using Raven.Client;
+using StructureMap;
 
 namespace BackboneCRM.Web.UI.Handlers
 {
     public class BasicAuthenticationMessageHandler : DelegatingHandler
     {
-        private class Credentials
-        {
-            public string Username { get; set; }
-            public string Password { get; set; }
-        }
+        private IDocumentSession session = ObjectFactory.GetInstance<IDocumentSession>();
 
         public BasicAuthenticationMessageHandler()
         {
@@ -46,7 +41,7 @@ namespace BackboneCRM.Web.UI.Handlers
 
         private bool ValidateUser(Credentials credentials)
         {
-            if (!credentials.Username.Equals("oliver") && credentials.Password.Equals("test"))
+            if (!session.Query<Member>().Where(x => x.Credentials.Username == credentials.Username && x.Credentials.Password == credentials.Password).Any())
             {
                 return false;
             }
@@ -61,18 +56,19 @@ namespace BackboneCRM.Web.UI.Handlers
                 {
                     return null;
                 }
+
                 var encodedUserPass = authHeader.Parameter.Trim();
 
-                ////throw new Exception(encodedUserPass);
-                //var encoding = Encoding.GetEncoding("iso-8859-1");
+                Credentials credentials;
 
+                if (!Credentials.TryParse(Crypto.DecryptStringAES(encodedUserPass, "authentication"), out credentials))
+                {
+                    return null;
+                }
 
-                //var userPass = encoding.GetString(Convert.FromBase64String(encodedUserPass));
-                var userPass = Crypto.DecryptStringAES(encodedUserPass, "authentication");
-                var parts = userPass.Split(":".ToCharArray());
-                return new Credentials { Username = parts[0], Password = parts[1] };
+                return credentials;
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }
