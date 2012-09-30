@@ -10,7 +10,7 @@
             app.vent.on("products", function () {
                 require(["Views/Products/HomeView"], function (ProductsHomeView) {
                     var homeView = new ProductsHomeView();
-                    app.main.show(homeView);
+                    app.container.currentView.content.show(homeView);
                 });
             });
 

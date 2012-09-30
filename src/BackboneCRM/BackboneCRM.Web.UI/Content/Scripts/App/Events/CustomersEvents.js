@@ -9,7 +9,7 @@
 
             app.vent.on("customers", function () {
                 require(["Views/Customers/Home/LayoutView"], function (customersLayoutView) {
-                    app.main.show(customersLayoutView);
+                    app.container.currentView.content.show(customersLayoutView);
 
                     require(["Views/Customers/Home/DescriptionView"], function (DescriptionView) {
                         customersLayoutView.description.show(new DescriptionView());
@@ -25,16 +25,13 @@
 
             app.vent.on("customers:add", function () {
                 require(["Views/Customers/Add/FormView"], function (customersFormView) {
-                    app.main.show(new customersFormView());
+                    app.container.currentView.content.show(new customersFormView());
                 })
             });
 
             app.vent.on("customers:update", function (customerId) {
                 require(["Views/Customers/Update/FormView", "Collections/CustomerCollection"], function (customersFormView, customerCollection) {
-
-                    console.log(customerId, customerCollection.get(customerId));
-
-                    app.main.show(new customersFormView({
+                    app.container.currentView.content.show(new customersFormView({
                         model: customerCollection.get(customerId)
                     }));
                 })

@@ -9,8 +9,7 @@
         var app = new Backbone.Marionette.Application();
 
         app.addRegions({
-            main: "#main-content-container",
-            menu: "#menu-container"
+            container: "#container"
         });
 
         //Define namespace for hubs
@@ -19,8 +18,8 @@
         //Initializerd
 
         function onlineInitialize() {
-            app.menu.show(new MenuView());
-            app.vent.trigger("routing:start");
+
+
 
             require(["Hubs/CustomersHub", "Models/Customer"], function (CustomersHub, Customer) {
                 app.hubs.customers = CustomersHub;
@@ -30,13 +29,20 @@
                 });
             });
 
-            app.router = new MainAppRouter(app);
-            if (!Backbone.History.started) { Backbone.history.start(); }
+            require(["Views/App/LayoutView"], function (layoutView) {
+
+                app.container.show(layoutView);
+
+                layoutView.menu.show(new MenuView());
+
+                app.router = new MainAppRouter(app);
+                if (!Backbone.History.started) { Backbone.history.start(); }
+            });
         }
 
         function offlineInitialize() {
             require(["Views/App/Login"], function (LoginView) {
-                app.main.show(new LoginView());
+                app.container.show(new LoginView());
             });
         }
 

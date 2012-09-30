@@ -163,8 +163,10 @@
     <Content Include="Content\Scripts\Vendor\Require\text.js" />
     <Content Include="Content\Scripts\Vendor\TwitterBootstrap\bootstrap.min.js" />
     <Content Include="Content\Scripts\Vendor\Backbone\underscore.min.js" />
+    <Content Include="Content\Scripts\Views\App\LayoutView.js" />
     <Content Include="Content\Scripts\Views\App\Login.js" />
     <Content Include="Content\Scripts\Views\App\MenuView.js" />
+    <Content Include="Content\Templates\App\online-layout.html" />
     <Content Include="Content\Scripts\Views\Customers\Add\FormView.js" />
     <Content Include="Content\Scripts\Views\Customers\Update\FormView.js" />
     <Content Include="Content\Scripts\Views\Customers\Home\ContentView.js" />
@@ -195,13 +197,6 @@
     <Content Include="Content\Scripts\Vendor\SignalR\jquery.signalR.0.5.3.js" />
     <Content Include="Content\Scripts\Vendor\SignalR\jquery.signalR-0.5.3.min.js">
       <DependentUpon>jquery.signalR.0.5.3.js</DependentUpon>
-    </Content>
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />

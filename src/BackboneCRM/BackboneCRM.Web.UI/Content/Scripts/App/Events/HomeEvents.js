@@ -8,9 +8,10 @@
         var eventBuilder = function (app) {
 
             app.vent.on("home", function () {
+                
                 require(["views/home/homeView"], function (HomeView) {
                     var homeView = new HomeView();
-                    app.main.show(homeView);
+                    app.container.currentView.content.show(homeView);
                 });
             });
 
