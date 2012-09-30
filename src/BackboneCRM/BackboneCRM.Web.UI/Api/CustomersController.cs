@@ -15,6 +15,7 @@ namespace BackboneCRM.Web.UI.Api
     {
         private IDocumentSession session = ObjectFactory.GetInstance<IDocumentSession>();
 
+        [Authorize]
         public HttpResponseMessage Get()
         {
             Customer[] customers = session.Query<Customer>().ToArray();

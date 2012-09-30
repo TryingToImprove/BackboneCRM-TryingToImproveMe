@@ -22,6 +22,7 @@
                 var cust = customerCollection.get(customer.Id);
                 cust.set("Name", customer.Name);
                 cust.set("Money", customer.Money);
+                cust.set("ImageUrl", customer.ImageUrl);
             });
         }
 

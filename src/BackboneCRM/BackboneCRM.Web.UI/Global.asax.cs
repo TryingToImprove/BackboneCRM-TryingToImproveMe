@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using BackboneCRM.Web.UI.Handlers;
 using Raven.Client;
 using Raven.Client.Document;
 using StructureMap;
@@ -46,6 +47,8 @@ namespace BackboneCRM.Web.UI
                         return y.GetInstance<IDocumentStore>().OpenSession();
                     });
             });
+
+            GlobalConfiguration.Configuration.MessageHandlers.Add(new BasicAuthenticationMessageHandler());
         }
     }
 }

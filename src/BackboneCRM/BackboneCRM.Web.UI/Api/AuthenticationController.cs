@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Security;
 using System.Web.SessionState;
+using BackboneCRM.Web.UI.Services;
 
 namespace BackboneCRM.Web.UI.Api
 {
@@ -17,9 +18,8 @@ namespace BackboneCRM.Web.UI.Api
         {
             if (userName.Equals("test", StringComparison.InvariantCultureIgnoreCase) && passWord.Equals("abc123"))
             {
-                var a = Request.CreateResponse<string>(HttpStatusCode.OK, "Online");
-                a.Headers.AddCookies(new CookieHeaderValue[] { new CookieHeaderValue(FormsAuthentication.FormsCookieName, userName) });
-
+                var a = Request.CreateResponse<string>(HttpStatusCode.OK, Crypto.EncryptStringAES("oliver:test", "authentication"));
+                
                 return a;
             }
             else
