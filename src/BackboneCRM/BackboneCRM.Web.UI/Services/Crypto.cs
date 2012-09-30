@@ -8,6 +8,9 @@ using System.Web;
 
 namespace BackboneCRM.Web.UI.Services
 {
+    /// <summary>
+    /// http://stackoverflow.com/questions/202011/encrypt-decrypt-string-in-net
+    /// </summary>
     public class Crypto
     {
         private static byte[] _salt = Encoding.ASCII.GetBytes("o6806642kbM7c5");

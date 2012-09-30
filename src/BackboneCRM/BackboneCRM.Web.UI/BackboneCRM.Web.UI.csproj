@@ -153,7 +153,6 @@
     <Content Include="Content\Scripts\Collections\CustomerCollection.js" />
     <Content Include="Content\Scripts\Hubs\CustomersHub.js" />
     <Content Include="Content\Scripts\main.js" />
-    <Content Include="Content\Scripts\Models\Session.js" />
     <Content Include="Content\Scripts\Models\Customer.js" />
     <Content Include="Content\Scripts\Routing\MainAppRouter.js" />
     <Content Include="Content\Scripts\Vendor\AjaxFileUpload\ajaxfileupload.js" />
@@ -164,6 +163,7 @@
     <Content Include="Content\Scripts\Vendor\Require\text.js" />
     <Content Include="Content\Scripts\Vendor\TwitterBootstrap\bootstrap.min.js" />
     <Content Include="Content\Scripts\Vendor\Backbone\underscore.min.js" />
+    <Content Include="Content\Scripts\Views\App\Login.js" />
     <Content Include="Content\Scripts\Views\App\MenuView.js" />
     <Content Include="Content\Scripts\Views\Customers\Add\FormView.js" />
     <Content Include="Content\Scripts\Views\Customers\Update\FormView.js" />
@@ -174,7 +174,7 @@
     <Content Include="Content\Scripts\Views\Home\HomeView.js" />
     <Content Include="Content\Stylesheets\bootstrap-responsive.min.css" />
     <Content Include="Content\Stylesheets\bootstrap.min.css" />
-    <Content Include="Content\Templates\App\main-layout.html" />
+    <Content Include="Content\Templates\App\login.html" />
     <Content Include="Content\Templates\App\menu.html" />
     <Content Include="Content\Templates\Customers\Add\form.html" />
     <Content Include="Content\Templates\Customers\Update\form.html" />

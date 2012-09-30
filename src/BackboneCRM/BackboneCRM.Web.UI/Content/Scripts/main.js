@@ -19,6 +19,8 @@ require.config({
 require(["underscore", "backbone", "marionette", "App/App", "handlebars", "signalr", "noext!../../../signalr/hubs"],
     function (_, Backbone, Marionette, App, Handlebars, signalr, hubs) {
 
+        window.id = null;
+
         //Configure Backbone.Marionette
 
         //Templating
@@ -65,8 +67,6 @@ require(["underscore", "backbone", "marionette", "App/App", "handlebars", "signa
         }
 
         $(function () {
-            window.id = Math.round(Math.random() * 1000);
-
             App.start();
         });
     });

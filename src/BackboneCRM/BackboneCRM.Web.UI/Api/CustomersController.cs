@@ -24,6 +24,7 @@ namespace BackboneCRM.Web.UI.Api
             return response;
         }
 
+        [Authorize]
         public HttpResponseMessage Post(Customer customer)
         {
             session.Store(customer);

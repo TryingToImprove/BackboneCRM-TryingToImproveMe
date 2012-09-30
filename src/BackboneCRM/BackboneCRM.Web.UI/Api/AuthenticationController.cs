@@ -13,13 +13,13 @@ namespace BackboneCRM.Web.UI.Api
 {
     public class AuthenticationController : ApiController
     {
-        [HttpGet]
-        public HttpResponseMessage SignIn(string userName, string passWord)
+        [HttpPost]
+        public HttpResponseMessage SignIn(string username, string password)
         {
-            if (userName.Equals("test", StringComparison.InvariantCultureIgnoreCase) && passWord.Equals("abc123"))
+            if (username.Equals("test", StringComparison.InvariantCultureIgnoreCase) && password.Equals("abc123"))
             {
                 var a = Request.CreateResponse<string>(HttpStatusCode.OK, Crypto.EncryptStringAES("oliver:test", "authentication"));
-                
+
                 return a;
             }
             else
